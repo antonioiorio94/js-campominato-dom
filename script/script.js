@@ -25,6 +25,24 @@ function startGame(totalOfCells, livello){
   const posizioneBombe = generaBombe(totalOfCells);
   creaGriglia(totalOfCells, livello);
 
+  
+
+  
+
+  for(let i=1; i<= totalOfCells; i++){
+    const cell = document.getElementById('cell-'+i);
+    //funzione per colorare la cella al click
+  cell.addEventListener('click', function(){
+    const isBomb = posizioneBombe.includes(i);
+    if(isBomb){
+      cell.classList.add('bg-red');
+    }else{
+      cell.classList.add('bg-blue');
+    }
+    
+  })
+  }
+
 }
 
 
@@ -41,6 +59,14 @@ function generaBombe(max){
   }
   return posizione;
 
+}
+
+
+
+
+function randomNumber(min, max){
+  const range = max - min + 1;
+  return Math.floor(Math.random()*range) + min;
 }
 
 
@@ -61,26 +87,26 @@ for (let i = 0; i < totalOfCells; i++){
   //inserisco i numeri
   cell.innerText = (i +1);
 
-  //funzione per colorare la cella al click
-  cell.addEventListener('click', function(){
-    cell.classList.toggle('bg-blue');
-  })
+  
 
 
   grid.appendChild(cell);
 
-}
-
-//Funzione per creare la cella
+  //Funzione per creare la cella
 function createCell(){
 
   const item = document.createElement('div');
+  item.id = "cell-" + ( i+1 );
 
   item.classList.add('cell');
   item.classList.add(livello)
 
   return item;
 }
+
+
+}
+
 
 }
 

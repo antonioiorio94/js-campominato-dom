@@ -42,3 +42,7 @@ body {
   width: calc(100% / 10);
   height: calc(100% / 10);
 }
+
+.bg-red {
+  background-color: red;
+}
