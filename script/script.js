@@ -8,32 +8,25 @@ La partita termina quando il giocatore clicca su una bomba o raggiunge il numero
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una b.
 */
 
+//Elementi bottone
+const easyButton = document.getElementById('easy');
+const mediumButton = document.getElementById('medium');
+const hardButton = document.getElementById('hard');
+
+easyButton.addEventListener('click', ()=> creaGriglia(100, 'easy'));
+mediumButton.addEventListener('click', ()=> creaGriglia(81, 'medium'));
+hardButton.addEventListener('click', ()=> creaGriglia(49, 'hard'));
+
+
+
+function creaGriglia(totalOfCells, livello){
+
 //Creare una griglia
 const grid = document.getElementById("grid")
-let rows;
-let columns;
 
+//reset
+grid.innerHTML = '';
 
-//Bonus ---- Difficoltà
-
-const difficoltà = prompt ("Scegli il livello: facile - medio - difficile").toLowerCase();
-
-if(difficoltà === "facile"){
-  rows = 10;
-  columns = 10;
-    }else if(difficoltà === "medio"){
-    rows = 9;
-    columns = 9;
-      }else if(difficoltà === "difficile"){
-        rows = 7;
-        columns = 7;
-      };
-
-      console.log(rows);
-      console.log(columns);
-
-//crea griglia
-const totalOfCells = rows * columns;
 
 //Creare una cella e un ciclo per inserirle
 for (let i = 0; i < totalOfCells; i++){
@@ -53,13 +46,18 @@ for (let i = 0; i < totalOfCells; i++){
 
 }
 
-
 //Funzione per creare la cella
 function createCell(){
 
   const item = document.createElement('div');
 
   item.classList.add('cell');
+  item.classList.add(livello)
 
   return item;
 }
+
+}
+
+
+

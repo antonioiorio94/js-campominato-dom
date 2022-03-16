@@ -18,12 +18,27 @@ body {
 }
 
 .cell {
-  width: calc(100% / 10);
-  height: calc(100% / 10);
   border: 1px solid red;
   text-align: center;
 }
 
 .cell.bg-blue {
   background-color: aqua;
+}
+
+.cell.medium {
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+  border: 1px solid red;
+  text-align: center;
+}
+
+.cell.hard {
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}
+
+.cell.easy {
+  width: calc(100% / 10);
+  height: calc(100% / 10);
 }
