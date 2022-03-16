@@ -30,12 +30,14 @@ function startGame(totalOfCells, livello){
   
 
   for(let i=1; i<= totalOfCells; i++){
-    const cell = document.getElementById('cell-'+i);
+    let cell = document.getElementById('cell-'+i);
     //funzione per colorare la cella al click
   cell.addEventListener('click', function(){
     const isBomb = posizioneBombe.includes(i);
+    let youLost = document.querySelector('lost_div');
     if(isBomb){
       cell.classList.add('bg-red');
+      youLost.classList.add('display_lost')
     }else{
       cell.classList.add('bg-blue');
     }

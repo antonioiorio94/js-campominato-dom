@@ -46,3 +46,14 @@ body {
 .bg-red {
   background-color: red;
 }
+
+.lost_div {
+  background-color: red;
+  color: #fff;
+  width: 100%;
+  display: none !important;
+}
+
+.display_lost {
+  display: block !important;
+}
