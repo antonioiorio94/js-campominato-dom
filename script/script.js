@@ -13,10 +13,35 @@ const easyButton = document.getElementById('easy');
 const mediumButton = document.getElementById('medium');
 const hardButton = document.getElementById('hard');
 
-easyButton.addEventListener('click', ()=> creaGriglia(100, 'easy'));
-mediumButton.addEventListener('click', ()=> creaGriglia(81, 'medium'));
-hardButton.addEventListener('click', ()=> creaGriglia(49, 'hard'));
 
+//EventListener bottone
+easyButton.addEventListener('click', ()=> startGame(100, 'easy'));
+mediumButton.addEventListener('click', ()=> startGame(81, 'medium'));
+hardButton.addEventListener('click', ()=> startGame(49, 'hard'));
+
+//Creazione funzione per gerare le bombe e creare la griglia
+function startGame(totalOfCells, livello){
+
+  const posizioneBombe = generaBombe(totalOfCells);
+  creaGriglia(totalOfCells, livello);
+
+}
+
+
+//creazione funzione per generare le bombe
+function generaBombe(max){
+    //array
+  const posizione = [];
+  //ciclo while per generare la posizione random
+  while(posizione.length < 16){
+      const number = randomNumber(1, max);
+      if (!posizione.includes(number)){
+        posizione.push(number);
+      }
+  }
+  return posizione;
+
+}
 
 
 function creaGriglia(totalOfCells, livello){
