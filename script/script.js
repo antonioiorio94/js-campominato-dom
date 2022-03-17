@@ -41,7 +41,7 @@ function startGame(totalOfCells, livello){
       cell.classList.add('bg-red');
       
       grid.appendChild(lostGame);
-      lostGame.innerText("Hai Perso!")
+      lostGame.innerText = "Hai Perso!";
     }else{
       cell.classList.add('bg-blue');
     }
