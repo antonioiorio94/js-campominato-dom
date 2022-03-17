@@ -34,10 +34,14 @@ function startGame(totalOfCells, livello){
     //funzione per colorare la cella al click
   cell.addEventListener('click', function(){
     const isBomb = posizioneBombe.includes(i);
-    let youLost = document.querySelector('lost_div');
+    const grid = document.getElementById("grid")
+    let lostGame = document.createElement('div');
+    lostGame.id = ("lost_div");
     if(isBomb){
       cell.classList.add('bg-red');
-      youLost.classList.add('display_lost')
+      
+      grid.appendChild(lostGame);
+      lostGame.innerText("Hai Perso!")
     }else{
       cell.classList.add('bg-blue');
     }
